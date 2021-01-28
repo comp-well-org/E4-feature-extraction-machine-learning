@@ -11,9 +11,8 @@ Based on package of [eda-explorer](https://eda-explorer.media.mit.edu) (Taylor, 
 ### Example code
 **Notes: the example codes assume for each participant data are collected from baseline and session**
 * **extract_feature.ipynb**: extract ACC,TEMP,EDA,EDA peaks,IBI features of E4 data
-* **e4_stats_tests.ipynb**: perfomr paired t-tests using [SciPy](https://www.scipy.org/)
-* **e4_ml.ipynb**: use extracted features to find best parameters, train, and predict whether data is from baseline or session using [Scikit-Learn](https://scikit-learn.org/stable/)
-* **e4_ml_with_resample.ipynb**: similar with e4_ml.ipynb on resampled data
+* **e4_stats_tests.ipynb**: performing paired t-tests using [SciPy](https://www.scipy.org/)
+* **svm_hyperparam.ipynb**: tuning hyperparameters of svm model using [Scikit-Learn](https://scikit-learn.org/stable/)
 
 ## Requirements
 numpy==1.16.2

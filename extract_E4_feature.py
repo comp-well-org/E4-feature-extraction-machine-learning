@@ -29,6 +29,7 @@ def extract_E4_features(fileroot, participant, settings_dict):
 
     # extract IBI
     data = readIBI(fileroot)
+    # set the time window for IBI features here
     timewindow = 60
     ibi_features = getIBIfeatures(data,timewindow).rename(columns={'timestamp': 'Time'})
     ibi_features.insert(0, "participant", participant)
@@ -62,9 +63,8 @@ def getSingleIBIfeatures(data):
     """
     INPUT:
         data: Dataframe of IBI values mapped to timestamps
-        participant: number of participant (i.e. participant 1,2,3,etc)
     OUTPUT:
-        Features of IBI data
+        A single IBI feature vector
         For more information: https://aura-healthcare.github.io/hrvanalysis/hrvanalysis.html
     """
     if data.empty:
@@ -89,6 +89,13 @@ def getSingleIBIfeatures(data):
 
 
 def getIBIfeatures(data,time_window):
+    """
+        INPUT:
+            data: Dataframe of IBI values mapped to timestamps
+        OUTPUT:
+            IBI features
+            For more information: https://aura-healthcare.github.io/hrvanalysis/hrvanalysis.html
+    """
     timestamp = data.timestamp.values
     IBI_data = np.array(data['IBI'].astype(float) * 1000)
 
